@@ -1,0 +1,8 @@
+<h1>投稿一覧</h1>
+<% @post.each do |post| %>
+  <div>
+    <P><%= post.customer.name %></P>
+    <p><%= post.title_name %></p>
+    <p><%= post.body %></p>
+  </div>
+<% end %>

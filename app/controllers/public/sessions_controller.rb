@@ -9,10 +9,11 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
+def create
+    super do |resource|
+      about_path
+  end
+end
   # DELETE /resource/sign_out
   # def destroy
   #   super
