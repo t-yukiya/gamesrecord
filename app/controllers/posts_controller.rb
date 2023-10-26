@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(post_paramas)
+    @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if @post.save
       redirect_to post_path(@post.id)
@@ -15,6 +15,8 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all
+    @posts = Post.all
+    @customer = current_customer
   end
 
   def show
