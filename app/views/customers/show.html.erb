@@ -1,0 +1,11 @@
+<h1>ユーザー詳細</h1>
+<div>
+  <h2><%= @customer.name %></h2>
+  <p><%= @customer.introduction %></p>
+</div>
+
+<% @posts.each do |post| %>
+<div>
+  <h3><strong><%= link_to post.title, post_path(post.id) %></strong></h3><%= post.created_at.strftime('%Y/%m/%d') %>
+</div>
+<% end %>
