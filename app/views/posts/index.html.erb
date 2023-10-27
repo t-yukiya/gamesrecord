@@ -1,17 +1,25 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
+      <%= render 'new', post: @post %>
     </div>
     <div class="col-md-8 offset-md-1">
      <h2>投稿一覧</h2>
       <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+             <th></th>
+             <th>Title</th>
+             <th colspan="3"></th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
             <% @posts.each do |post| %>
-            <td><%= link_to post.customer.name, post.customer %></td>
-            <td><%= link_to post.title, post_path(post.id) %></td>
-            <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
-            </tr>
+              <th><%= link_to post.customer.name, post.customer %></th>
+              <th><%= link_to post.title, post_path(post.id) %></th>
+              <th><%= post.created_at.strftime('%Y/%m/%d') %></th>
+          </tr>
             <% end %>
         </tbody>
       </table>

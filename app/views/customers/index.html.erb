@@ -6,8 +6,19 @@
             <tbody>
               <tr>
               <% @customers.each do |customer| %>
-                <tb><%= customer.introduction %></tb>
                 <td><%= link_to customer.name, customer_path(customer.id) %></td>
+                <td><%= customer.introduction %></td>
+                <td>フォロー<%= customer.followers.count %></td>
+                <td>フォロワー<%= customer.followeds.count %></td>
+                <td>
+                  <% if current_customer != customer %>
+                    <% if current_customer.following?(customer) %>
+                      <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete, class: "btn btn-danger" %>
+                    <% else %>
+                      <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class:"btn btn-success" %>
+                    <% end %>
+                  <% end %>
+                </td>
               </tr>
               <% end %>
             </tbody>

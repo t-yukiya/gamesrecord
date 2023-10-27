@@ -1,0 +1,20 @@
+<h2>フォロー</h2>
+  <table class='table'>
+    <tbody>
+      <% @customer.each do |customer| %>
+        <tr>
+          <td><%= customer.name %></td>
+          <td>
+            <%= link_to follows_customer_path(customer) do %>
+              <p>フォロー<%= customer.followers.count %></p>
+            <% end %>
+          </td>
+          <td>  
+            <%= link_to followers_customer_path(customer) do %>
+              <p>フォロワー<%= customer.followeds.count %></p>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
