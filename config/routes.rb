@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  root to: 'homes#top'
+  get 'about' => 'homes#about'
+  
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
@@ -16,7 +19,5 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
   end
   resources :posts
-  root to: 'homes#top'
-  get 'about' => 'homes#about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
