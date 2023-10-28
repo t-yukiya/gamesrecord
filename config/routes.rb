@@ -19,5 +19,6 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
   end
   resources :posts
+  get '/favicon.ico', to: redirect('/path/to/favicon.ico')
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
